@@ -1,9 +1,9 @@
 import { defineComponent } from "vue";
 import styles from './styles.module.less'
-import Header from '../header/index'
+import topHeader from '../header/index'
 import Sidebar from '..//sidebar/index'
 export default defineComponent({
-  components:{Header,Sidebar},
+  components:{topHeader,Sidebar},
   setup(){
     return () => (
       <div class={styles.main}>
@@ -11,7 +11,7 @@ export default defineComponent({
           <Sidebar></Sidebar>
         </div>
         <div class={styles.mainContent}>
-          <Header></Header>
+          <topHeader></topHeader>
           <div class={styles.content}>
             <router-view></router-view>
           </div>

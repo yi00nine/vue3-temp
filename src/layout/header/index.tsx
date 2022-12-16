@@ -6,7 +6,7 @@ export default defineComponent({
     return ()=>(
       <div class={styles.header}>
         <div class={styles.rightBox}>
-          <div class={styles.help}>使用帮助</div>
+          <div class={styles.help}>欢迎回来</div>
           <div class={styles.trim}></div>
           <a-dropdown>
             {{

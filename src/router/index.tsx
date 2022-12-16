@@ -14,7 +14,7 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '/main/normalPage',
-        component:()=>import('../views/normalPage/page1/index'),
+        component:()=>import('../views/normalPage/index'),
         redirect:'/main/normalPage/page1',
         children:[
           {
@@ -51,12 +51,12 @@ export const getMenuItems = (isAdmin: boolean) => {
       children: [
         {
           key: 'page1',
-          label: '普通页面1',
+          label: <router-link to='/main/normalPage/page1'>普通页面1</router-link>,
           children: null
         },
         {
           key: 'page2',
-          label: '普通页面2',
+          label: <router-link to='/main/normalPage/page2'>普通页面2</router-link>,
           children: null
         }
       ]

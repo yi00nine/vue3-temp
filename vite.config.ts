@@ -4,7 +4,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),vueJsx()],
+  plugins: [vue(), vueJsx()],
   css: {
     preprocessorOptions: {
       less: {
@@ -12,13 +12,13 @@ export default defineConfig({
       }
     }
   },
-  server:{
-    host:'0.0.0.0',
-    port:1234,
-    open:true,
-    proxy:{
-      '/api':{
-        target:'http://localhost:8807'
+  server: {
+    host: '0.0.0.0',
+    port: 1234,
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8807'
       }
     }
   }
