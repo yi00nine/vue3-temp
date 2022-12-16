@@ -1,19 +1,50 @@
-import axios from 'axios'
-import { message } from 'ant-design-vue'
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
+import { message as Message } from 'ant-design-vue'
+import {
+  handleRequestHeader,
+  handleAuth,
+  handleAuthError,
+  handleGeneralError,
+  handleNetworkError,
+  downloadFile
+} from './tool'
 
-const service = axios.create({
-  timeout: 10000
-})
+export const createAxios = (config: AxiosRequestConfig): AxiosInstance => {
+  const instance = axios.create({
+    timeout: 1000,
+    withCredentials: true,
+    ...config
+  })
 
-service.interceptors.request.use()
+  instance.interceptors.request.use((config: any) => {
+    return config
+  })
 
-service.interceptors.response.use(
-  (response) => {
-    return response
-  },
-  (error) => {
-    return Promise.reject(error)
-  }
-)
+  instance.interceptors.response.use(
+    (res) => {
+      console.log(res)
+      const { code, data, message } = res.data
+      if (res.data instanceof Blob) {
+        return downloadFile(res)
+      } else {
+        if (code === 200) return data
+        else if (code === 401) {
+          //todo 跳转login
+        } else {
+          Message.error(message)
+          return Promise.reject(res.data)
+        }
+      }
+    },
+    (err) => {
+      console.log(err)
+      if (err?.response?.status === 401) {
+        //todo
+      }
+      Message.error(err?.response?.data?.message || '服务端异常')
+      return Promise.reject(err)
+    }
+  )
 
-export default service
+  return instance
+}
