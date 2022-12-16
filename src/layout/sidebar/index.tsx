@@ -1,8 +1,8 @@
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive } from 'vue'
 import styles from './styles.module.less'
-import {getMenuItems} from '../../router/index'
+import { getMenuItems } from '../../router/index'
 export default defineComponent({
-  setup(){
+  setup() {
     console.log(getMenuItems(true))
     const state = reactive({
       selectedKeys: location.pathname.split('/').slice(-1)
@@ -10,9 +10,7 @@ export default defineComponent({
     console.log(state)
     return () => (
       <div class={styles.sidebarMain}>
-        <div class={styles.header}>
-          zxb
-        </div>
+        <div class={styles.header}>zxb</div>
         <div class={styles.menuWrap}>
           <a-menu
             mode="inline"
@@ -20,27 +18,21 @@ export default defineComponent({
             v-model:selectedKeys={state.selectedKeys}
             openKeys={['normalPage']}
           >
-            {
-              getMenuItems(true).map((item:any,index:any)=>(
-                item.children ?
+            {getMenuItems(true).map((item: any, index: any) =>
+              item.children ? (
                 <a-sub-menu key={item.key}>
                   {{
-                    title:()=>item.label,
-                    default:()=>
-                      item.children.map((el:any)=>
-                        <a-menu-item key={el.key}>
-                          {el.label}
-                        </a-menu-item>
-                      )
+                    title: () => item.label,
+                    default: () =>
+                      item.children.map((el: any) => (
+                        <a-menu-item key={el.key}>{el.label}</a-menu-item>
+                      ))
                   }}
-                </a-sub-menu>:
-                <a-menu-item
-                  key={item.key}
-                >
-                  {item.label}
-                </a-menu-item>
-              ))
-            }
+                </a-sub-menu>
+              ) : (
+                <a-menu-item key={item.key}>{item.label}</a-menu-item>
+              )
+            )}
           </a-menu>
         </div>
       </div>

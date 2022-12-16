@@ -1,10 +1,10 @@
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 import styles from './styles.module.less'
 import topHeader from '../header/index'
 import Sidebar from '..//sidebar/index'
 export default defineComponent({
-  components:{topHeader,Sidebar},
-  setup(){
+  components: { topHeader, Sidebar },
+  setup() {
     return () => (
       <div class={styles.main}>
         <div class={styles.sidebarWrapper}>

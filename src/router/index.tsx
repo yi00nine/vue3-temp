@@ -4,27 +4,27 @@ const history = createWebHistory()
 
 export const routes: RouteRecordRaw[] = [
   {
-    path:'/',
-    redirect:'/main'
+    path: '/',
+    redirect: '/main'
   },
   {
-    path:'/main',
-    component:() => import('../layout/main'),
+    path: '/main',
+    component: () => import('../layout/main'),
     redirect: '/main/normalPage',
     children: [
       {
         path: '/main/normalPage',
-        component:()=>import('../views/normalPage/index'),
-        redirect:'/main/normalPage/page1',
-        children:[
+        component: () => import('../views/normalPage/index'),
+        redirect: '/main/normalPage/page1',
+        children: [
           {
             path: '/main/normalPage/page1',
-            component:()=>import('../views/normalPage/page1/index'),
+            component: () => import('../views/normalPage/page1/index')
           },
           {
             path: '/main/normalPage/page2',
-            component:()=>import('../views/normalPage/page2/index'),
-          },
+            component: () => import('../views/normalPage/page2/index')
+          }
         ]
       }
     ]
@@ -36,8 +36,8 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to,from,next)=>{
-  console.log(to,from)
+router.beforeEach((to, from, next) => {
+  console.log(to, from)
   next()
 })
 
@@ -51,12 +51,16 @@ export const getMenuItems = (isAdmin: boolean) => {
       children: [
         {
           key: 'page1',
-          label: <router-link to='/main/normalPage/page1'>普通页面1</router-link>,
+          label: (
+            <router-link to="/main/normalPage/page1">普通页面1</router-link>
+          ),
           children: null
         },
         {
           key: 'page2',
-          label: <router-link to='/main/normalPage/page2'>普通页面2</router-link>,
+          label: (
+            <router-link to="/main/normalPage/page2">普通页面2</router-link>
+          ),
           children: null
         }
       ]
