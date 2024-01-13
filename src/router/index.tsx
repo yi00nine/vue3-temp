@@ -9,7 +9,7 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/main',
-    component: () => import('../layout/main'),
+    component: () => import('../layout'),
     redirect: '/main/normalPage',
     children: [
       {
