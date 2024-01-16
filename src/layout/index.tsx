@@ -3,11 +3,11 @@ import styles from './styles.module.less'
 
 import Navbar from './Navbar'
 import MenuComponent from './menu'
-
+import pageComponent from './pageComponent'
 import { layoutStyleConfig } from '../types/constants'
 
 export default defineComponent({
-  components: { MenuComponent },
+  components: { pageComponent },
   setup() {
     const paddingStyle = computed(() => {
       const paddingLeft = { paddingLeft: '220px' }
@@ -31,7 +31,9 @@ export default defineComponent({
             <a-layout style={paddingStyle.value} class={styles.main}>
               <div>tabbar</div>
               <div>breadcrumb</div>
-              <a-layout-content>Content</a-layout-content>
+              <a-layout-content>
+                <pageComponent></pageComponent>
+              </a-layout-content>
               <div>footer</div>
             </a-layout>
           </a-layout>

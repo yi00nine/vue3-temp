@@ -1,13 +1,7 @@
-import { defineStore } from 'pinia'
+import { createPinia } from 'pinia'
+import useAppStore from './modules/app'
+const pinia = createPinia()
 
-export const useUserStore = defineStore({
-  id: 'user',
-  state: () => ({
-    name: ''
-  }),
-  actions: {
-    async login(data: any) {
-      // todo
-    }
-  }
-})
+export { useAppStore }
+
+export default pinia

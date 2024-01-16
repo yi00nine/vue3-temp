@@ -8,24 +8,20 @@ export const routes: RouteRecordRaw[] = [
     redirect: '/main'
   },
   {
-    path: '/main',
+    path: '/exception',
     component: () => import('../layout'),
-    redirect: '/main/normalPage',
     children: [
       {
-        path: '/main/normalPage',
-        component: () => import('../views/normalPage/index'),
-        redirect: '/main/normalPage/page1',
-        children: [
-          {
-            path: '/main/normalPage/page1',
-            component: () => import('../views/normalPage/page1/index')
-          },
-          {
-            path: '/main/normalPage/page2',
-            component: () => import('../views/normalPage/page2/index')
-          }
-        ]
+        path: '403',
+        component: () => import('../views/exception/403')
+      },
+      {
+        path: '404',
+        component: () => import('../views/exception/404')
+      },
+      {
+        path: '500',
+        component: () => import('../views/exception/500')
       }
     ]
   }

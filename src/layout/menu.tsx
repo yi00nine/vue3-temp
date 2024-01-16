@@ -1,10 +1,9 @@
 import { defineComponent, reactive } from 'vue'
+import { useAppStore } from '../store/index'
 
 export default defineComponent({
   setup() {
-    const state = reactive({
-      selectedKeys2: ''
-    })
+    const appStore = useAppStore()
     return () => (
       <a-menu mode="inline" style="height: 100%">
         <a-sub-menu title="subnav 1">

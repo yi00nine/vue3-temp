@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
-
 export default defineComponent({
   setup() {
-    return () => <router-view></router-view>
+    return () => <div>403</div>
   }
 })
