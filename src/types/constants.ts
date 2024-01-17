@@ -8,3 +8,14 @@ export const layoutStyleConfig = {
 export enum ApplicationInfo {
   appTitle = 'vue tsx tmp'
 }
+
+export enum ViewNames {
+  dashboard = 'dashboard',
+  workplace = 'workplace',
+  monitor = 'monitor',
+
+  exception = 'exception',
+  _403 = '403',
+  _404 = '404',
+  _500 = '500'
+}

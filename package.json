@@ -16,12 +16,14 @@
     "axios": "^1.2.1",
     "less": "^4.1.3",
     "loadsh": "^0.0.4",
+    "mitt": "^3.0.1",
     "pinia": "^2.0.27",
     "vue": "^3.2.25",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.202",
+    "@types/node": "^20.11.4",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "@vitejs/plugin-vue": "^2.3.3",
