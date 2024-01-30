@@ -5,10 +5,11 @@ import Navbar from './Navbar'
 import MenuComponent from './menu'
 import pageComponent from './pageComponent'
 import tabComponent from './tabBar'
+import breadcrumbComponent from './breadcrum'
 import { layoutStyleConfig } from '../types/constants'
 import { useAppStore } from '@/store'
 export default defineComponent({
-  components: { pageComponent, tabComponent },
+  components: { pageComponent, tabComponent, breadcrumbComponent },
   setup() {
     const appStore = useAppStore()
     const paddingStyle = computed(() => {
@@ -37,7 +38,7 @@ export default defineComponent({
             </a-layout-sider>
             <a-layout style={paddingStyle.value} class={styles.main}>
               <tabComponent></tabComponent>
-              <div>breadcrumb</div>
+              <breadcrumbComponent></breadcrumbComponent>
               <a-layout-content>
                 <pageComponent></pageComponent>
               </a-layout-content>
