@@ -6,10 +6,16 @@ import MenuComponent from './menu'
 import pageComponent from './pageComponent'
 import tabComponent from './tabBar'
 import breadcrumbComponent from './breadcrum'
+import footerComponent from './footer'
 import { layoutStyleConfig } from '../types/constants'
 import { useAppStore } from '@/store'
 export default defineComponent({
-  components: { pageComponent, tabComponent, breadcrumbComponent },
+  components: {
+    pageComponent,
+    tabComponent,
+    breadcrumbComponent,
+    footerComponent
+  },
   setup() {
     const appStore = useAppStore()
     const paddingStyle = computed(() => {
@@ -42,7 +48,7 @@ export default defineComponent({
               <a-layout-content>
                 <pageComponent></pageComponent>
               </a-layout-content>
-              <div>footer</div>
+              <footerComponent></footerComponent>
             </a-layout>
           </a-layout>
         </a-layout>
