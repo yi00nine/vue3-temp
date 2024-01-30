@@ -10,6 +10,8 @@ export enum ApplicationInfo {
 }
 
 export enum ViewNames {
+  redirect = 'redirect',
+
   dashboard = 'dashboard',
   workplace = 'workplace',
   monitor = 'monitor',

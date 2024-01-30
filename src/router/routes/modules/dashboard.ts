@@ -13,7 +13,7 @@ export default {
       name: ViewNames.monitor,
       component: () => import('@/views/dashboard/monitor'),
       meta: {
-        locale: 'menu.exception.403'
+        locale: 'menu.dashboard.monitor'
       }
     },
     {
@@ -21,7 +21,7 @@ export default {
       name: ViewNames.workplace,
       component: () => import('@/views/dashboard/workplace'),
       meta: {
-        locale: 'menu.exception.404'
+        locale: 'menu.dashboard.workplace'
       }
     }
   ]

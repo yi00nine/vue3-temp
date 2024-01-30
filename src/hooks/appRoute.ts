@@ -4,6 +4,7 @@ import { isString } from 'lodash'
 
 import { appRoutes } from '@/router/routes/index'
 import { ViewNames } from '@/types/constants'
+
 import dashboardIcon from '@/assets/dashboard.png'
 import exceptionIcon from '@/assets/exception.png'
 
@@ -24,6 +25,12 @@ type MenuData = {
   locale: string
   localePath: string[]
   children?: MenuData[]
+}
+
+export const firstRoute = {
+  name: ViewNames.monitor,
+  title: 'menu.dashboard.monitor',
+  fullPath: '/dashboard/monitor'
 }
 
 export default function useAppRoute() {
@@ -85,5 +92,6 @@ export default function useAppRoute() {
     }
     return { tree: nodeList, map: _map }
   })
+  console.log(appRouteData)
   return { appRouteData }
 }

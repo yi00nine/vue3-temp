@@ -4,16 +4,21 @@ import styles from './styles.module.less'
 import Navbar from './Navbar'
 import MenuComponent from './menu'
 import pageComponent from './pageComponent'
+import tabComponent from './tabBar'
 import { layoutStyleConfig } from '../types/constants'
-
+import { useAppStore } from '@/store'
 export default defineComponent({
-  components: { pageComponent },
+  components: { pageComponent, tabComponent },
   setup() {
+    const appStore = useAppStore()
     const paddingStyle = computed(() => {
-      const paddingLeft = { paddingLeft: '220px' }
+      const paddingLeft = { paddingLeft: `${siderWidth.value}px` }
       const paddingTop = { paddingTop: layoutStyleConfig.navbarHeight + 'px' }
 
       return { ...paddingLeft, ...paddingTop }
+    })
+    const siderWidth = computed(() => {
+      return appStore.menuCollapse ? 80 : appStore.menuWidth
     })
     return () => (
       <>
@@ -25,11 +30,13 @@ export default defineComponent({
                 paddingTop: paddingStyle.value.paddingTop
               }}
               class={styles.sider}
+              width={siderWidth.value}
+              v-model:collapsed={appStore.menuCollapse}
             >
               <MenuComponent></MenuComponent>
             </a-layout-sider>
             <a-layout style={paddingStyle.value} class={styles.main}>
-              <div>tabbar</div>
+              <tabComponent></tabComponent>
               <div>breadcrumb</div>
               <a-layout-content>
                 <pageComponent></pageComponent>

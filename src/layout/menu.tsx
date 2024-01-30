@@ -11,7 +11,6 @@ export default defineComponent({
 
     const openKeys = ref<string[]>([])
     const selectedKey = ref<string[]>([])
-    console.log(appRouteData.value)
     const handleMenuItemClick = (item: RouteRecordRaw) => {
       router.push({
         name: item.name
@@ -53,7 +52,6 @@ export default defineComponent({
     }
 
     listenRouteChange((newRoute) => {
-      console.log(newRoute)
       if (newRoute.name) {
         const appRoute = appRouteData.value.map[newRoute.name]
         if (appRoute) {
@@ -66,7 +64,6 @@ export default defineComponent({
     })
     return () => (
       <a-menu
-        v-model:collapsed={appStore.menuCollapse}
         v-model:open-keys={openKeys.value}
         selected-keys={selectedKey.value}
         mode="inline"

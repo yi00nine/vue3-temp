@@ -1,0 +1,26 @@
+@import '../../styles/base.less';
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 8px;
+  color: @text-color;
+  font-weight: 500;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: @color-fill;
+  border-color: transparent;
+}
+.link-activated {
+  color: @primary-color;
+}
