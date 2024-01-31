@@ -92,6 +92,5 @@ export default function useAppRoute() {
     }
     return { tree: nodeList, map: _map }
   })
-  console.log(appRouteData)
   return { appRouteData }
 }

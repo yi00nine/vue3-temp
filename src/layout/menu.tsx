@@ -2,13 +2,15 @@ import { defineComponent, h, reactive, ref } from 'vue'
 import { useAppStore } from '../store/index'
 import useAppRoute from '@/hooks/appRoute'
 import { useRouter, type RouteRecordRaw } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
 import { listenRouteChange } from '@/utils/routerListener'
 export default defineComponent({
   setup() {
     const appStore = useAppStore()
     const { appRouteData } = useAppRoute()
     const router = useRouter()
-
+    const { t } = useI18n()
     const openKeys = ref<string[]>([])
     const selectedKey = ref<string[]>([])
     const handleMenuItemClick = (item: RouteRecordRaw) => {
@@ -27,7 +29,7 @@ export default defineComponent({
                 key={route.name as string}
                 onClick={() => handleMenuItemClick(route)}
               >
-                {route.name}
+                {t(route.locale)}
               </a-menu-item>
             )
           } else {
@@ -37,7 +39,7 @@ export default defineComponent({
                   key={route.name as string}
                   v-slots={{
                     icon: () => <img src={route.icon}></img>,
-                    title: () => route.name
+                    title: () => t(route.locale)
                   }}
                 >
                   {traverse(route.children)}

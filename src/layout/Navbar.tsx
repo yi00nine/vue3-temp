@@ -2,6 +2,7 @@ import { defineComponent, reactive } from 'vue'
 import { TranslationOutlined } from '@ant-design/icons-vue'
 import styles from './styles.module.less'
 import { layoutStyleConfig, ApplicationInfo } from '../types/constants'
+import useLocale from '@/hooks/locale'
 import trans from '../assets/zhongwen.png'
 import sun from '../assets/Sunny.png'
 import moon from '../assets/yueliang.png'
@@ -13,6 +14,10 @@ export default defineComponent({
   setup() {
     const Icon = ({ url }) => {
       return <img src={url} alt="" />
+    }
+    const { changeLocale } = useLocale()
+    const handleLocaleChange = (locale: string) => {
+      changeLocale(locale)
     }
     return () => (
       <div
@@ -38,10 +43,10 @@ export default defineComponent({
               ),
               overlay: () => (
                 <a-menu>
-                  <a-menu-item>
+                  <a-menu-item onClick={() => handleLocaleChange('zh-CN')}>
                     <div>中文</div>
                   </a-menu-item>
-                  <a-menu-item>
+                  <a-menu-item onClick={() => handleLocaleChange('en-US')}>
                     <div>英文</div>
                   </a-menu-item>
                 </a-menu>

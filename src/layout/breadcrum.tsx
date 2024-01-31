@@ -3,12 +3,13 @@ import { AppstoreOutlined } from '@ant-design/icons-vue'
 import { useRoute, useRouter } from 'vue-router'
 import styles from './styles.module.less'
 import { layoutStyleConfig } from '@/types/constants'
-
+import { useI18n } from 'vue-i18n'
 export default defineComponent({
   props: ['itemData', 'index'],
   setup(props) {
     const route = useRoute()
     console.log(route)
+    const { t } = useI18n()
     return () => (
       <div
         style={{
@@ -21,7 +22,9 @@ export default defineComponent({
             <AppstoreOutlined />
           </a-breadcrumb-item>
           {route.matched.map((item) => (
-            <a-breadcrumb-item>{item.name}</a-breadcrumb-item>
+            <a-breadcrumb-item>
+              {t(item.meta.locale as string)}
+            </a-breadcrumb-item>
           ))}
         </a-breadcrumb>
       </div>

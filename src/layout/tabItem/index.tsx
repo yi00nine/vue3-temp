@@ -4,12 +4,14 @@ import { useRoute, useRouter } from 'vue-router'
 import styles from './styles.module.less'
 import useTabStore from '@/store/modules/tab'
 import { ViewNames } from '@/types/constants'
+import { useI18n } from 'vue-i18n'
 export default defineComponent({
   props: ['itemData', 'index'],
   setup(props) {
     const route = useRoute()
     const router = useRouter()
     const tabStore = useTabStore()
+    const { t } = useI18n()
 
     const tabList = computed(() => {
       return tabStore.tabList
@@ -48,7 +50,6 @@ export default defineComponent({
       }
     }
     const delOther = () => {
-      console.log(props.itemData)
       const filterList = tabList.value.filter((el, idx) => {
         return [0, props.index].includes(idx)
       })
@@ -73,7 +74,7 @@ export default defineComponent({
                 tagChecked.value && styles['link-activated']
               ]}
             >
-              <span>{props.itemData.name}</span>
+              <span>{t(props.itemData.title)}</span>
               {shouldClose.value && (
                 <span onClick={withModifiers(handleTabClose, ['stop'])}>
                   <CloseOutlined />

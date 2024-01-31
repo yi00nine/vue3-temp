@@ -7,7 +7,6 @@ export default defineComponent({
   props: ['itemData', 'index'],
   setup(props) {
     const route = useRoute()
-    console.log(route)
     return () => (
       <a-layout-footer
         style={{

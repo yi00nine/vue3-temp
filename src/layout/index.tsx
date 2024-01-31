@@ -46,7 +46,7 @@ export default defineComponent({
               <tabComponent></tabComponent>
               <breadcrumbComponent></breadcrumbComponent>
               <a-layout-content>
-                <pageComponent></pageComponent>
+                <pageComponent class={styles.page}></pageComponent>
               </a-layout-content>
               <footerComponent></footerComponent>
             </a-layout>

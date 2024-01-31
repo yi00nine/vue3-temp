@@ -21,3 +21,7 @@ export enum ViewNames {
   _404 = '404',
   _500 = '500'
 }
+export enum LocaleOptions {
+  cn = 'zh-CN',
+  en = 'en-US'
+}

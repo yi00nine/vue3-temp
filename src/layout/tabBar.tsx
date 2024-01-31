@@ -10,7 +10,6 @@ export default defineComponent({
   setup() {
     const appStore = useAppStore()
     const tabStore = useTabStore()
-    console.log(tabStore)
     const tabList = computed(() => tabStore.tabList)
     listenRouteChange((route) => {
       if (!tabList.value.some((el) => el.name === route.name)) {
