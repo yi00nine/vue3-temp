@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+
+  // 添加这个样式来包装 Menu
+  :global(.ant-menu) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.publish {
+  display: flex;
+  align-items: center;
+  gap: 8px; // 按钮之间的间距
+
+  .previewBtn,
+  .publishBtn {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    height: 28px;
+    border-radius: 4px;
+
+    .btnIcon {
+      margin-right: 4px;
+      font-size: 14px;
+    }
+  }
+}

@@ -15,8 +15,12 @@ export enum ViewNames {
   dashboard = 'dashboard',
   workplace = 'workplace',
   monitor = 'monitor',
+  workFlow = 'workFlow',
 
+  workSpace = 'workSpace',
+  workDesign = 'workDesign',
   exception = 'exception',
+
   _403 = '403',
   _404 = '404',
   _500 = '500'
