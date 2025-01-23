@@ -40,7 +40,7 @@ export default defineComponent({
           <Menu.Item key="baseSetting" onClick={() => to('baseSetting')}>
             ① 基础信息
           </Menu.Item>
-          <Menu.Item key="formSetting" onClick={() => to('formSetting')}>
+          <Menu.Item key="formDesign" onClick={() => to('formDesign')}>
             ② 审批表单
           </Menu.Item>
           <Menu.Item key="processDesign" onClick={() => to('processDesign')}>
