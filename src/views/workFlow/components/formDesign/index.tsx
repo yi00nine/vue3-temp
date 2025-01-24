@@ -16,7 +16,8 @@ const formSettingsStore = useFormSettingsStore()
 const { design } = storeToRefs(formSettingsStore)
 
 const isStart = ref(false)
-
+// todo
+const formValue = ref<any>({})
 const clone = (element: Record<'name' | 'id', string>) => {
   const getId = () => {
     return (
@@ -25,15 +26,12 @@ const clone = (element: Record<'name' | 'id', string>) => {
       new Date().getTime().toString().substring(5)
     )
   }
-  return {
-    ...element,
-    id: getId()
-  }
+  element.id = getId()
+  return JSON.parse(JSON.stringify(element))
 }
 
 const handleSelectFormItem = (item: FormItem) => {
   formSettingsStore.selectFormItem = item
-  console.log(selectFormItem.value)
 }
 
 const selectFormItem = computed(() => {
@@ -132,7 +130,10 @@ export default defineComponent({
                       <div class={styles.formItemOption}>
                         <Icon name="DeleteOutlined" />
                       </div>
-                      <FormDesignRender config={item} />
+                      <FormDesignRender
+                        config={item}
+                        v-model:value={formValue.value[item.id]}
+                      />
                     </div>
                   </div>
                 )

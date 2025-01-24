@@ -20,7 +20,9 @@ export default defineComponent({
     const formRef = ref()
     const _value = computed({
       get: () => props.value,
-      set: (val) => emit('update:value', val)
+      set: (val) => {
+        emit('update:value', val)
+      }
     })
 
     const validate = (call: any) => {
@@ -34,6 +36,7 @@ export default defineComponent({
         component={props.config.name}
         {...props.config.props}
         v-model:value={_value.value}
+        mode="test"
       />
     )
   }

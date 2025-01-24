@@ -10,12 +10,13 @@ export default defineComponent({
     type: {
       type: Number,
       default: 1
+    },
+    mode: {
+      type: String,
+      default: 'DESIGN'
     }
   },
   setup(props, { attrs }) {
-    console.log(123, props)
-    console.log(1234, attrs)
-
     const AsyncComponent = defineAsyncComponent(
       () =>
         import(
@@ -24,6 +25,6 @@ export default defineComponent({
           }/${props.component}`
         )
     )
-    return () => h(AsyncComponent, { ...attrs })
+    return () => h(AsyncComponent, { ...props, ...attrs })
   }
 })

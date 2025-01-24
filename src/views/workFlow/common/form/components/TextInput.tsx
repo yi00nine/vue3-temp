@@ -17,16 +17,14 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const _value = computed({
-      get: () => props.value,
-      set: (val) => emit('update:value', val)
+      get: () => {
+        return props.value
+      },
+      set: (val) => {
+        emit('update:value', val)
+      }
     })
 
-    watch(
-      () => props.value,
-      (newVal) => {
-        console.log(12345, newVal)
-      }
-    )
     return () => (
       <div>
         {props.mode === 'DESIGN' ? (

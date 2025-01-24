@@ -1,4 +1,4 @@
-import { PropType } from 'vue';
+import { PropType } from 'vue'
 
 export const commonProps = {
   mode: {
@@ -9,4 +9,4 @@ export const commonProps = {
     type: Boolean as PropType<boolean>,
     default: false
   }
-};
+}

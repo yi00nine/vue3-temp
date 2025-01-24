@@ -9,7 +9,6 @@ export default defineComponent({
   setup(props, { emit }) {
     const formSettingsStore = useFormSettingsStore()
     const { selectFormItem } = storeToRefs(formSettingsStore)
-    console.log(selectFormItem.value)
     return () => (
       <div>
         <Form>
