@@ -1,5 +1,8 @@
 {
   "menu.dashboard.monitor": "实时监控",
   "menu.dashboard.workplace": "工作台",
-  "menu.dashboard": "仪表盘"
+  "menu.dashboard": "仪表盘",
+  "menu.workFlow": "工作流",
+  "menu.workSpace": "工作空间",
+  "menu.workDesign": "工作设计"
 }

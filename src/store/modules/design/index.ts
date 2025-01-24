@@ -5,6 +5,20 @@ interface NotifySettings {
   title: string
 }
 
+export interface FormItem {
+  id: string
+  name: string
+  icon: string
+  props: {
+    enablePrint: boolean
+    placeholder: string
+    required: boolean
+  }
+  title: string
+  value: string | number
+  valueType: string
+}
+
 interface FormSettings {
   formName: string
   remark: string
@@ -12,9 +26,9 @@ interface FormSettings {
     notify: NotifySettings
   }
   design: {
-    formItems: any[]
+    formItems: FormItem[]
   }
-  selectFormItem: any
+  selectFormItem: FormItem | Record<string, never>
 }
 
 export const useFormSettingsStore = defineStore('formSettings', {

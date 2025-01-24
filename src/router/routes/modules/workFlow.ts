@@ -5,7 +5,7 @@ export default {
   name: ViewNames.workFlow,
   component: () => import('@/layout'),
   meta: {
-    locale: 'workFlow'
+    locale: 'menu.workFlow'
   },
   children: [
     {
@@ -13,7 +13,7 @@ export default {
       name: ViewNames.workSpace,
       component: () => import('@/views/workFlow/workSpace'),
       meta: {
-        locale: 'workSpace'
+        locale: 'menu.workSpace'
       }
     },
     {
@@ -21,7 +21,7 @@ export default {
       name: ViewNames.workDesign,
       component: () => import('@/views/workFlow/workDesign'),
       meta: {
-        locale: 'workDesign'
+        locale: 'menu.workDesign'
       }
     }
   ]

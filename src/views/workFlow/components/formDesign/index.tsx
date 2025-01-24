@@ -11,7 +11,7 @@ import { storeToRefs } from 'pinia'
 import FormDesignRender from '@/views/workFlow/common/form/formDesignRender'
 import FormComponentConfig from '@/views/workFlow/common/form/FormComponentConfig'
 import { isEmptyObject } from '@/utils'
-
+import { FormItem } from '@/store/modules/design'
 const formSettingsStore = useFormSettingsStore()
 const { design } = storeToRefs(formSettingsStore)
 
@@ -31,7 +31,7 @@ const clone = (element: Record<'name' | 'id', string>) => {
   }
 }
 
-const handleSelectFormItem = (item: Record<'name' | 'id', string>) => {
+const handleSelectFormItem = (item: FormItem) => {
   formSettingsStore.selectFormItem = item
   console.log(selectFormItem.value)
 }
@@ -44,39 +44,41 @@ export default defineComponent({
   name: 'FormDesign',
   setup() {
     return () => (
-      <Layout style="height: 100%">
+      <Layout class={styles.layout}>
         <Sider width={300} class={styles.componentsSider}>
-          <div class={styles.componentsNav}>组件库</div>
-          <div>
-            {baseComponents.map((group, i) => (
-              <div class={styles.components} key={i}>
-                <p class={styles.componentsTitle}>{group.name}</p>
-                <div>
-                  <VueDraggable
-                    class={styles.drag}
-                    ghostClass="ghost"
-                    v-model={group.components}
-                    sort={false}
-                    clone={clone}
-                    group={{ name: 'form', pull: 'clone', put: false }}
-                    onStart={() => (isStart.value = true)}
-                    onEnd={() => (isStart.value = false)}
-                  >
-                    {group.components.map((component, index) => {
-                      return (
-                        <div class={styles.dragItem} key={index}>
-                          <Icon
-                            class={styles.dragItemIcon}
-                            name={component.icon}
-                          />
-                          <span>{component.title}</span>
-                        </div>
-                      )
-                    })}
-                  </VueDraggable>
+          <div class={styles.componentsSiderContent}>
+            <div class={styles.componentsNav}>组件库</div>
+            <div>
+              {baseComponents.map((group, i) => (
+                <div class={styles.components} key={i}>
+                  <p class={styles.componentsTitle}>{group.name}</p>
+                  <div>
+                    <VueDraggable
+                      class={styles.drag}
+                      ghostClass="ghost"
+                      v-model={group.components}
+                      sort={false}
+                      clone={clone}
+                      group={{ name: 'form', pull: 'clone', put: false }}
+                      onStart={() => (isStart.value = true)}
+                      onEnd={() => (isStart.value = false)}
+                    >
+                      {group.components.map((component, index) => {
+                        return (
+                          <div class={styles.dragItem} key={index}>
+                            <Icon
+                              class={styles.dragItemIcon}
+                              name={component.icon}
+                            />
+                            <span>{component.title}</span>
+                          </div>
+                        )
+                      })}
+                    </VueDraggable>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Sider>
 

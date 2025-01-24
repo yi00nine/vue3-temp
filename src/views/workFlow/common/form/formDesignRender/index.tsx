@@ -23,7 +23,7 @@ export default defineComponent({
       set: (val) => emit('update:value', val)
     })
 
-    const validate = (call: Function) => {
+    const validate = (call: any) => {
       if (formRef.value) {
         formRef.value.validate(call)
       }
@@ -32,8 +32,8 @@ export default defineComponent({
     return () => (
       <DynamicComponent
         component={props.config.name}
-        v-bind="config.props"
-        mode={props.mode}
+        {...props.config.props}
+        v-model:value={_value.value}
       />
     )
   }

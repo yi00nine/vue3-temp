@@ -1,6 +1,6 @@
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, PropType, computed, watch } from 'vue'
 import { Input } from 'ant-design-vue'
-import { useTextInput } from '../useForm'
+import { commonProps } from '../commonProps'
 
 export default defineComponent({
   name: 'TextInput',
@@ -12,13 +12,24 @@ export default defineComponent({
     placeholder: {
       type: String as PropType<string>,
       default: '请输入内容'
-    }
+    },
+    ...commonProps
   },
   setup(props, { emit }) {
-    const { _value, mode, required } = useTextInput(props, emit)
+    const _value = computed({
+      get: () => props.value,
+      set: (val) => emit('update:value', val)
+    })
+
+    watch(
+      () => props.value,
+      (newVal) => {
+        console.log(12345, newVal)
+      }
+    )
     return () => (
       <div>
-        {mode.value === 'DESIGN' ? (
+        {props.mode === 'DESIGN' ? (
           <Input size="middle" disabled placeholder={props.placeholder} />
         ) : (
           <Input

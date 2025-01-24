@@ -20,8 +20,6 @@ export default defineComponent({
       ]
     })
 
-    const notifyTypes = ref([]) // 通知类型
-
     return () => (
       <div class={styles.baseSetup}>
         <Form

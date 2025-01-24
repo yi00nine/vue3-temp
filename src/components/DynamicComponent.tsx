@@ -12,7 +12,10 @@ export default defineComponent({
       default: 1
     }
   },
-  setup(props) {
+  setup(props, { attrs }) {
+    console.log(123, props)
+    console.log(1234, attrs)
+
     const AsyncComponent = defineAsyncComponent(
       () =>
         import(
@@ -21,6 +24,6 @@ export default defineComponent({
           }/${props.component}`
         )
     )
-    return () => h(AsyncComponent)
+    return () => h(AsyncComponent, { ...attrs })
   }
 })
