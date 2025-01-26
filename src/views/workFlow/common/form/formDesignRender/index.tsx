@@ -36,7 +36,7 @@ export default defineComponent({
         component={props.config.name}
         {...props.config.props}
         v-model:value={_value.value}
-        mode="test"
+        mode={props.mode}
       />
     )
   }

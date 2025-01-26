@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, watch } from 'vue'
-import { Layout, Tooltip } from 'ant-design-vue'
+import { Layout, Tooltip, Modal } from 'ant-design-vue'
 
 import { VueDraggable } from 'vue-draggable-plus'
 import { baseComponents } from '@/views/workFlow/common/form/componentConfigExport'
@@ -12,12 +12,15 @@ import FormDesignRender from '@/views/workFlow/common/form/formDesignRender'
 import FormComponentConfig from '@/views/workFlow/common/form/FormComponentConfig'
 import { isEmptyObject } from '@/utils'
 import { FormItem } from '@/store/modules/design'
+import FormRender from '../../common/form/FormRender'
 const formSettingsStore = useFormSettingsStore()
 const { design } = storeToRefs(formSettingsStore)
 
 const isStart = ref(false)
 // todo
 const formValue = ref<any>({})
+
+const isModalVisible = ref(false)
 const clone = (element: Record<'name' | 'id', string>) => {
   const getId = () => {
     return (
@@ -84,21 +87,34 @@ export default defineComponent({
           <div class={styles.toolNav}>
             <div class={styles.toolNavItem}>
               <Tooltip title="撤销">
-                <Icon name="UndoOutlined" />
+                <div class={styles.icon}>
+                  <Icon name="UndoOutlined" />
+                </div>
               </Tooltip>
               <Tooltip title="恢复">
-                <Icon name="RedoOutlined" />
+                <div class={styles.icon}>
+                  <Icon name="RedoOutlined" />
+                </div>
               </Tooltip>
             </div>
             <div class={styles.toolNavItem}>
               <Tooltip title="预览表单">
-                <Icon name="EyeOutlined" />
+                <div
+                  class={styles.icon}
+                  onClick={() => (isModalVisible.value = true)}
+                >
+                  <Icon name="EyeOutlined" />
+                </div>
               </Tooltip>
               <Tooltip title="移动端">
-                <Icon name="MobileOutlined" />
+                <div class={styles.icon}>
+                  <Icon name="MobileOutlined" />
+                </div>
               </Tooltip>
               <Tooltip title="pc端">
-                <Icon name="WindowsOutlined" />
+                <div class={styles.icon}>
+                  <Icon name="WindowsOutlined" />
+                </div>
               </Tooltip>
             </div>
           </div>
@@ -130,10 +146,7 @@ export default defineComponent({
                       <div class={styles.formItemOption}>
                         <Icon name="DeleteOutlined" />
                       </div>
-                      <FormDesignRender
-                        config={item}
-                        v-model:value={formValue.value[item.id]}
-                      />
+                      <FormDesignRender config={item} />
                     </div>
                   </div>
                 )
@@ -151,6 +164,18 @@ export default defineComponent({
             </div>
           )}
         </Sider>
+
+        <Modal
+          title="表单预览"
+          visible={isModalVisible.value}
+          onCancel={() => (isModalVisible.value = false)}
+          footer={null}
+        >
+          <FormRender
+            v-model:value={formValue.value}
+            forms={design.value.formItems}
+          ></FormRender>
+        </Modal>
       </Layout>
     )
   }
