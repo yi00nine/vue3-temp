@@ -3,6 +3,7 @@ import styles from './styles.module.less'
 import LayoutHeader from '@/views/workFlow/components/layoutHeader'
 import FormBaseSetting from '@/views/workFlow/components/formBaseSetting'
 import FormDesign from '@/views/workFlow/components/formDesign/index'
+import ProcessDesign from '../components/processDesign'
 export default defineComponent({
   setup() {
     const state = reactive({
@@ -27,6 +28,7 @@ export default defineComponent({
           <a-layout-content class={styles.content}>
             {state.selectKeys.includes('baseSetting') && <FormBaseSetting />}
             {state.selectKeys.includes('formDesign') && <FormDesign />}
+            {state.selectKeys.includes('processDesign') && <ProcessDesign />}
           </a-layout-content>
         </a-layout>
       </>

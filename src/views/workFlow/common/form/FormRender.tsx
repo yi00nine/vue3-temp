@@ -1,4 +1,4 @@
-import { defineComponent, ref, reactive, computed } from 'vue'
+import { defineComponent, ref, reactive, computed, PropType } from 'vue'
 import { Form } from 'ant-design-vue'
 import type { FormInstance } from 'ant-design-vue'
 import FormDesignRender from './formDesignRender'
@@ -7,7 +7,7 @@ export default defineComponent({
   name: 'FormRender',
   props: {
     forms: {
-      type: Array<FormItem>,
+      type: Array as PropType<FormItem[]>,
       default: () => []
     },
     value: {

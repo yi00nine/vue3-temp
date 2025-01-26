@@ -28,5 +28,13 @@ export default defineConfig({
         target: 'http://localhost:8807'
       }
     }
+  },
+  optimizeDeps: {
+    exclude: ['@logicflow/core']
+  },
+  build: {
+    rollupOptions: {
+      external: ['@logicflow/core']
+    }
   }
 })
