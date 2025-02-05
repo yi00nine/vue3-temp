@@ -1,4 +1,3 @@
-
 import { nodeProperty } from '../type'
 
 export default function RegisteNode(lf: any) {
@@ -15,7 +14,6 @@ export default function RegisteNode(lf: any) {
           return isValid
         }
       }
-      // @ts-ignore
       rules.push(geteWayOnlyAsTarget)
       return rules
     }
@@ -111,7 +109,6 @@ export default function RegisteNode(lf: any) {
           return isValid
         }
       }
-      // @ts-ignore
       rules.push(geteWayOnlyAsTarget)
       return rules
     }

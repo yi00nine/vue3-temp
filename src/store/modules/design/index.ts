@@ -20,35 +20,44 @@ export interface FormItem {
 }
 
 interface FormSettings {
-  formName: string
-  remark: string
-  settings: {
-    notify: NotifySettings
-  }
   design: {
+    formId: string
+    formName: string
+    remark: string
+    settings: {
+      notify: NotifySettings
+    }
     formItems: FormItem[]
+    process: any
   }
   selectFormItem: FormItem | Record<string, never>
+  selectNode: any
 }
 
 export const useFormSettingsStore = defineStore('formSettings', {
   state: (): FormSettings => ({
-    formName: '',
-    remark: '',
-    settings: {
-      notify: {
-        types: [],
-        title: ''
-      }
-    },
     design: {
-      formItems: []
+      formId: '',
+      formName: '',
+      remark: '',
+      settings: {
+        notify: {
+          types: [],
+          title: ''
+        }
+      },
+      formItems: [],
+      process: {}
     },
-    selectFormItem: {}
+    selectFormItem: {},
+    selectNode: {}
   }),
   actions: {
     updateFormSettings(settings: Partial<FormSettings>) {
       Object.assign(this, settings)
+    },
+    loadForm(data: any) {
+      this.design = data
     }
   }
 })

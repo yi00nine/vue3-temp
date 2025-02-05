@@ -18,5 +18,6 @@ module.exports = {
     parser: '@typescript-eslint/parser'
   },
   plugins: ['vue', '@typescript-eslint'],
+  ignorePatterns: ['public/*'],
   rules: {}
 }

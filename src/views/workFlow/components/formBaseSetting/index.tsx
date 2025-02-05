@@ -9,7 +9,7 @@ export default defineComponent({
   setup() {
     const formRef = ref<FormInstance>()
     const formSettingsStore = useFormSettingsStore()
-    const { formName, remark, settings } = storeToRefs(formSettingsStore)
+    const { design } = storeToRefs(formSettingsStore)
     const state = reactive({
       notifyTypes: [
         { type: 'APP', name: '应用内通知' },
@@ -24,7 +24,7 @@ export default defineComponent({
       <div class={styles.baseSetup}>
         <Form
           ref={formRef}
-          model={formSettingsStore}
+          model={formSettingsStore.design}
           labelCol={{ span: 24 }}
           wrapperCol={{ span: 24 }}
         >
@@ -33,12 +33,12 @@ export default defineComponent({
             name="formName"
             rules={[{ required: true, message: '请输入表单名称' }]}
           >
-            <Input v-model:value={formName.value} />
+            <Input v-model:value={design.value.formName} />
           </Form.Item>
 
           <Form.Item label="表单说明">
             <Input.TextArea
-              v-model:value={remark.value}
+              v-model:value={design.value.remark}
               placeholder="请输入表单说明"
               showCount
               maxlength={500}
@@ -52,7 +52,7 @@ export default defineComponent({
           >
             <div class={styles.notifyRow}>
               <Select
-                v-model:value={settings.value.notify.types}
+                v-model:value={design.value.settings.notify.types}
                 mode="multiple"
                 placeholder="选择消息通知方式"
                 allowClear
@@ -64,7 +64,7 @@ export default defineComponent({
                 ))}
               </Select>
               <Input
-                v-model:value={settings.value.notify.title}
+                v-model:value={design.value.settings.notify.title}
                 placeholder="消息通知标题"
               />
             </div>

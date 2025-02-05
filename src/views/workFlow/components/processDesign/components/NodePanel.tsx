@@ -11,8 +11,6 @@ export default defineComponent({
     }
   },
   setup(props) {
-    console.log(props)
-    // 拖拽创建
     const dragNode = (item: HtmlNodeConfig) => {
       props.lf.dnd.startDrag({
         type: item.type,

@@ -27,6 +27,9 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8807'
       }
+    },
+    fs: {
+      allow: ['..', 'public/logic'] // 允许访问 public/logic 文件夹
     }
   },
   optimizeDeps: {
