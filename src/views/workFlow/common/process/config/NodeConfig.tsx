@@ -10,8 +10,8 @@ export default defineComponent({
     return () => (
       <>
         <Tabs>
-          <Tabs.TabPane key="1" tab="Tab 1">
-            {formSettingsStore.selectNode.type === 'apply' ? (
+          <Tabs.TabPane key="1" tab="设置">
+            {formSettingsStore.selectNode?.type === 'apply' ? (
               <RootNodeConfig></RootNodeConfig>
             ) : null}
           </Tabs.TabPane>

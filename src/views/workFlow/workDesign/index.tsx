@@ -56,9 +56,23 @@ export default defineComponent({
             />
           </a-layout-header>
           <a-layout-content class={styles.content}>
-            {state.selectKeys.includes('baseSetting') && <FormBaseSetting />}
-            {state.selectKeys.includes('formDesign') && <FormDesign />}
-            {state.selectKeys.includes('processDesign') && <ProcessDesign />}
+            <FormBaseSetting
+              style={{
+                display: state.selectKeys.includes('baseSetting') ? '' : 'none'
+              }}
+            />
+            <FormDesign
+              style={{
+                display: state.selectKeys.includes('formDesign') ? '' : 'none'
+              }}
+            />
+            <ProcessDesign
+              style={{
+                display: state.selectKeys.includes('processDesign')
+                  ? ''
+                  : 'none'
+              }}
+            />
           </a-layout-content>
         </a-layout>
       </>

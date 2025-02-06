@@ -1,7 +1,13 @@
 import { nodeProperty } from '../type'
-
+import { ROOT_PROPS, APPROVAL_PROPS } from '../config'
 export default function RegisteNode(lf: any) {
   class ApplyNodeModel extends Core.CircleNodeModel {
+    constructor(data: any, graphModel: Core.GraphModel) {
+      super(data, graphModel)
+      this.properties = {
+        ...ROOT_PROPS
+      }
+    }
     getConnectedTargetRules(): any {
       const rules = super.getConnectedTargetRules()
       const geteWayOnlyAsTarget = {
@@ -63,9 +69,7 @@ export default function RegisteNode(lf: any) {
     constructor(data: any, graphModel: Core.GraphModel) {
       super(data, graphModel)
       this.properties = {
-        labelColor: '#000000',
-        approveTypeLabel: '',
-        approveType: ''
+        ...APPROVAL_PROPS
       }
     }
   }

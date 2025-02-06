@@ -8,12 +8,6 @@ export const approveNodes = [
       borderRadius: '15px',
       border: '2px solid #FF6347'
     },
-    property: {
-      username: '',
-      time: '',
-      startTime: '',
-      endTime: ''
-    }
   },
   {
     type: 'approver',

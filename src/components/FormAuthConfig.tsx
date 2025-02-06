@@ -60,14 +60,39 @@ export default defineComponent({
       }
     ]
 
-    formSettingsStore.selectNode.properties.formPerms =
-      formSettingsStore.design.formItems.map((item, index) => ({
-        id: item.id,
-        perm: 'readonly',
-        title: item.title,
-        required: item.props.required
-      }))
+    const initPerms = () => {
+      const oldPermsMap: Map<string, any> = new Map(
+        formSettingsStore.selectNode.properties.formPerms.map((item) => [
+          item.id,
+          item
+        ])
+      )
+      formSettingsStore.selectNode.properties.formPerms.length = 0
+      const newPerms = formSettingsStore.design.formItems.map((item) => {
+        const oldPerm = oldPermsMap.get(item.id)
 
+        if (oldPerm) {
+          return {
+            ...oldPerm,
+            title: item.title,
+            required: item.props.required
+          }
+        }
+
+        return {
+          id: item.id,
+          perm:
+            formSettingsStore.selectNode.type === 'apply'
+              ? 'editable'
+              : 'readonly',
+          title: item.title,
+          required: item.props.required
+        }
+      })
+      formSettingsStore.selectNode.properties.formPerms = newPerms
+    }
+
+    initPerms()
     return () => (
       <div>
         <Table
