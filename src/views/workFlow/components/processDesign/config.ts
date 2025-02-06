@@ -7,7 +7,7 @@ export const approveNodes = [
       height: '30px',
       borderRadius: '15px',
       border: '2px solid #FF6347'
-    },
+    }
   },
   {
     type: 'approver',
