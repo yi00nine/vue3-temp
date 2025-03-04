@@ -4,5 +4,7 @@
   "menu.dashboard": "仪表盘",
   "menu.workFlow": "工作流",
   "menu.workSpace": "工作空间",
-  "menu.workDesign": "工作设计"
+  "menu.workDesign": "工作设计",
+  "menu.three": "three",
+  "menu.three.scene": "场景"
 }
