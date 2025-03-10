@@ -6,5 +6,6 @@
   "menu.workSpace": "工作空间",
   "menu.workDesign": "工作设计",
   "menu.three": "three",
-  "menu.three.scene": "场景"
+  "menu.three.scene": "场景",
+  "menu.three.camera": "相机"
 }

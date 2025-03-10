@@ -141,7 +141,7 @@ class Camera {
 }
 
 class Tank {
-  tankContainer: Object3D
+  tankContainer: THREE.Object3D
   body: any
 
   constructor() {
@@ -162,7 +162,12 @@ class Body {
   geometry: THREE.BoxGeometry
   material: THREE.MeshPhongMaterial
   mesh: THREE.Mesh
-  camera: PerspectiveCamera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
+  camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
+    75,
+    2,
+    0.1,
+    1000
+  )
   turret: Turret = new Turret(this.carLength)
   wheel: Wheel = new Wheel()
   constructor() {

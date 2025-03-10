@@ -13,6 +13,14 @@ export default {
       meta: {
         locale: 'menu.three.scene'
       }
+    },
+    {
+      path: 'camera',
+      name: 'camera',
+      component: () => import('@/views/three/camera'),
+      meta: {
+        locale: 'menu.three.camera'
+      }
     }
   ]
 }
