@@ -7,5 +7,6 @@
   "menu.workDesign": "工作设计",
   "menu.three": "three",
   "menu.three.scene": "场景",
-  "menu.three.camera": "相机"
+  "menu.three.camera": "相机",
+  "menu.three.bufferGeometry": "自定义几何体"
 }

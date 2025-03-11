@@ -3,5 +3,7 @@ declare module 'three/addons/libs/lil-gui.module.min.js' {
 }
 
 declare module 'three/addons/controls/OrbitControls.js' {
-  export const GUI: any
+  export const OrbitControls: any
 }
+
+declare module 'three/addons/utils/BufferGeometryUtils.js' {}

@@ -21,6 +21,14 @@ export default {
       meta: {
         locale: 'menu.three.camera'
       }
+    },
+    {
+      path: 'bufferGeometry',
+      name: 'bufferGeometry',
+      component: () => import('@/views/three/bufferGeometry'),
+      meta: {
+        locale: 'menu.three.bufferGeometry'
+      }
     }
   ]
 }
