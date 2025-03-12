@@ -19,7 +19,8 @@ export default {
       name: 'camera',
       component: () => import('@/views/three/camera'),
       meta: {
-        locale: 'menu.three.camera'
+        locale: 'menu.three.camera',
+        ignoreCache: true
       }
     },
     {
@@ -27,7 +28,8 @@ export default {
       name: 'bufferGeometry',
       component: () => import('@/views/three/bufferGeometry'),
       meta: {
-        locale: 'menu.three.bufferGeometry'
+        locale: 'menu.three.bufferGeometry',
+        ignoreCache: true
       }
     },
     {
@@ -35,7 +37,8 @@ export default {
       name: 'tween',
       component: () => import('@/views/three/tween'),
       meta: {
-        locale: 'menu.three.tween'
+        locale: 'menu.three.tween',
+        ignoreCache: true
       }
     }
   ]

@@ -7,7 +7,9 @@ export default defineComponent({
       new TankSimulation()
     })
     return () => (
-      <canvas id="c" style={{ width: '100%', height: '100%' }}></canvas>
+      <div>
+        <canvas id="c" style={{ width: '100%', height: '100%' }}></canvas>
+      </div>
     )
   }
 })

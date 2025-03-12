@@ -84,7 +84,6 @@ export class TankSimulation {
     // todo
     const camera = this.cameras[0]
     const canvas = this.renderer.domElement
-    console.log(canvas.clientWidth, canvas.clientHeight)
     camera.aspect = canvas.clientWidth / canvas.clientHeight
     this.renderer.setSize(canvas.clientWidth, canvas.clientHeight, false)
     camera.updateProjectionMatrix()
