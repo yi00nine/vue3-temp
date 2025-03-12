@@ -15,16 +15,18 @@ export default defineComponent({
         --this.numTweensRunning
       }
       createTween(targetObject) {
-        const self = this
         ++this.numTweensRunning
-        let userCompleteFn = () => {}
 
-        const tween = new TWEEN.Tween(targetObject).onComplete(function (
-          ...args: any
-        ) {
-          self._handleComplete()
-          userCompleteFn.call(this, ...args)
-        })
+        let userCompleteFn = () => {
+          console.log('Tween complete')
+        }
+
+        const tween = new TWEEN.Tween(targetObject).onComplete(
+          (...args: any) => {
+            this._handleComplete()
+            userCompleteFn.call(this, ...args)
+          }
+        )
         tween.onComplete = (fn: () => void) => {
           userCompleteFn = fn
           return tween
