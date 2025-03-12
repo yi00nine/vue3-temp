@@ -29,6 +29,14 @@ export default {
       meta: {
         locale: 'menu.three.bufferGeometry'
       }
+    },
+    {
+      path: 'tween',
+      name: 'tween',
+      component: () => import('@/views/three/tween'),
+      meta: {
+        locale: 'menu.three.tween'
+      }
     }
   ]
 }

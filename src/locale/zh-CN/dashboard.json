@@ -8,5 +8,6 @@
   "menu.three": "three",
   "menu.three.scene": "场景",
   "menu.three.camera": "相机",
-  "menu.three.bufferGeometry": "自定义几何体"
+  "menu.three.bufferGeometry": "自定义几何体",
+  "menu.three.tween": "动画"
 }
