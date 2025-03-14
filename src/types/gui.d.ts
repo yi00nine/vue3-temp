@@ -12,3 +12,7 @@ declare module 'three/addons/libs/tween.module.js' {
   const TWEEN: any
   export default TWEEN
 }
+
+declare module 'three/addons/loaders/GLTFLoader.js' {
+  export const GLTFLoader: any
+}

@@ -40,6 +40,24 @@ export default {
         locale: 'menu.three.tween',
         ignoreCache: true
       }
+    },
+    {
+      path: 'gltf',
+      name: 'gltf',
+      component: () => import('@/views/three/gltf'),
+      meta: {
+        locale: 'menu.three.gltf',
+        ignoreCache: true
+      }
+    },
+    {
+      path: 'earth',
+      name: 'earth',
+      component: () => import('@/views/three/earth'),
+      meta: {
+        locale: 'menu.three.earth',
+        ignoreCache: true
+      }
     }
   ]
 }
