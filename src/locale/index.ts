@@ -14,10 +14,10 @@ const getMessageFromModules = (_moduleMap: Record<string, unknown>) => {
 }
 
 const cnMessages = getMessageFromModules(
-  import.meta.globEager('./zh-CN/*.json')
+  import.meta.glob('./zh-CN/*.json', { eager: true })
 )
 const enMessages = getMessageFromModules(
-  import.meta.globEager('./en-US/*.json')
+  import.meta.glob('./en-US/*.json', { eager: true })
 )
 const i18n = createI18n({
   locale: LocaleOptions.cn,
