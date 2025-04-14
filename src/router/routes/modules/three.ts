@@ -58,6 +58,15 @@ export default {
         locale: 'menu.three.earth',
         ignoreCache: true
       }
+    },
+    {
+      path: 'su7',
+      name: 'su7',
+      component: () => import('@/views/three/su7'),
+      meta: {
+        locale: 'menu.three.su7',
+        ignoreCache: true
+      }
     }
   ]
 }

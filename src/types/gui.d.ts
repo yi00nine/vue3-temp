@@ -16,3 +16,8 @@ declare module 'three/addons/libs/tween.module.js' {
 declare module 'three/addons/loaders/GLTFLoader.js' {
   export const GLTFLoader: any
 }
+
+declare module '*.glsl' {
+  const value: string
+  export default value
+}
